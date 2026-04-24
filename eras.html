@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse by Era — The Indian Numismatic</title>
+  <meta name="description" content="Explore the history of Indian coinage through different historical eras — Ancient, Mughal, Princely States, Colonial and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Era blocks ── */
+    .eras-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .era-block {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .era-block:nth-child(even) {
+      direction: rtl;
+    }
+    .era-block:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .era-info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      position: sticky;
+      top: 90px;
+    }
+
+    .era-period-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .era-info-panel h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .era-info-panel p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .era-kingdoms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .era-grid-mini {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .era-header-ornament {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .era-see-all {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border-gold);
+      padding: 0.4rem 0.9rem;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .era-see-all:hover {
+      background: rgba(200,168,75,0.1);
+      color: var(--gold-light);
+    }
+
+    /* ── Timeline strip at top ── */
+    .timeline-strip {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      padding-bottom: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .timeline-period {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 1rem 0.75rem;
+      border-top: 2px solid var(--border);
+      position: relative;
+      cursor: pointer;
+      transition: border-color var(--transition);
+    }
+    .timeline-period:hover { border-top-color: var(--gold-dark); }
+    .timeline-period:hover .period-label { color: var(--gold); }
+
+    .timeline-period::before {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--bg-deep);
+    }
+
+    .period-date {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .period-label {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      transition: color var(--transition);
+    }
+
+    @media (max-width: 780px) {
+      .era-block {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .era-block:nth-child(even) { direction: ltr; }
+      .era-info-panel { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">The Indian Numismatic</span>
+      <span class="logo-sub">Est. A Treasury of Ancient Coinage</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="eras.html" class="active">By Era</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="gold-rule-thick"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb"><a href="index.html">Home</a> › <span>Browse by Era</span></p>
+  <h1>Coins Through Time</h1>
+  <p class="subtitle">India's numismatic story spans over 2,600 years. Each era produced coinage of distinct character, artistry, and political vision.</p>
+</div>
+
+<main class="container">
+
+  <!-- TIMELINE STRIP -->
+  <div class="timeline-strip">
+    <div class="timeline-period" onclick="document.getElementById('era-ancient').scrollIntoView({behavior:'smooth'})">
+      <span class="period-date">600 B.C. – 600 A.D.</span>
+      <span class="period-label">Ancient India</span>
+    </div>
+    <div class="timeline-period" onclick="document.getElementById('era-south').scrollIntoView({behavior:'smooth'})">
+      <span class="period-date">200 A.D. – 1800 A.D.</span>
+      <span class="period-label">South Indian</span>
+    </div>
+    <div class="timeline-period" onclick="document.getElementById('era-mughal').scrollIntoView({behavior:'smooth'})">
+      <span class="period-date">1206 – 1858 A.D.</span>
+      <span class="period-label">Mughal & Sultanate</span>
+    </div>
+    <div class="timeline-period" onclick="document.getElementById('era-princely').scrollIntoView({behavior:'smooth'})">
+      <span class="period-date">17th – 20th C.</span>
+      <span class="period-label">Princely States</span>
+    </div>
+    <div class="timeline-period" onclick="document.getElementById('era-colonial').scrollIntoView({behavior:'smooth'})">
+      <span class="period-date">1757 – 1947 A.D.</span>
+      <span class="period-label">Colonial Era</span>
+    </div>
+  </div>
+
+  <div class="eras-list">
+
+    <!-- ── ERA 1: Ancient India ── -->
+    <div class="era-block" id="era-ancient">
+      <div class="era-info-panel animate-in">
+        <span class="era-header-ornament">🏛️</span>
+        <span class="era-period-label">600 B.C. — 600 A.D.</span>
+        <h2>Ancient India</h2>
+        <p>
+          The earliest coins of India — the silver punch-marked karshapanas of the Mauryan Empire — are among
+          the world's first currencies. The era also encompasses the extraordinary art of the Gupta gold dinars
+          and the unique bilingual coinage of the Indo-Greek kingdoms.
+        </p>
+        <p>
+          Coins of this period serve as primary historical documents. They preserve the names of rulers
+          otherwise unknown from any other source, and their iconography captures the religious and political
+          ideals of entire civilisations.
+        </p>
+        <div class="era-kingdoms">
+          <span class="meta-tag">Mauryan Empire</span>
+          <span class="meta-tag">Gupta Empire</span>
+          <span class="meta-tag">Indo-Greek</span>
+          <span class="meta-tag">Kushana</span>
+          <span class="meta-tag">Satavahana</span>
+        </div>
+        <a href="collection.html?era=Ancient+India" class="era-see-all">View All Ancient Coins →</a>
+      </div>
+      <div id="era-grid-ancient" class="era-grid-mini animate-in animate-delay-2">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ── ERA 2: South Indian Kingdoms ── -->
+    <div class="era-block" id="era-south">
+      <div class="era-info-panel animate-in">
+        <span class="era-header-ornament">🌴</span>
+        <span class="era-period-label">200 A.D. — 1800 A.D.</span>
+        <h2>South Indian Kingdoms</h2>
+        <p>
+          The coinage of South India rivals that of any world civilisation in variety and beauty.
+          The tiny gold fanams of Travancore and Cochin, the magnificent pagodas of Vijayanagara,
+          and the punch-marked coins of the Satavahanas all form part of this remarkable tradition.
+        </p>
+        <p>
+          Iconography draws heavily from Vaishnavism and Shaivism — deities, conch shells, fish,
+          and elephants appear as recurring symbols of dynastic identity.
+        </p>
+        <div class="era-kingdoms">
+          <span class="meta-tag">Vijayanagara</span>
+          <span class="meta-tag">Travancore</span>
+          <span class="meta-tag">Chola</span>
+          <span class="meta-tag">Pallava</span>
+          <span class="meta-tag">Kingdom of Mysore</span>
+        </div>
+        <a href="collection.html?era=South+Indian+Kingdoms" class="era-see-all">View South Indian Coins →</a>
+      </div>
+      <div id="era-grid-south" class="era-grid-mini animate-in animate-delay-2">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ── ERA 3: Mughal & Sultanate ── -->
+    <div class="era-block" id="era-mughal">
+      <div class="era-info-panel animate-in">
+        <span class="era-header-ornament">☪️</span>
+        <span class="era-period-label">1206 A.D. — 1858 A.D.</span>
+        <h2>Mughal & Sultanate</h2>
+        <p>
+          The Delhi Sultanate introduced true Islamic coinage to the subcontinent, and the Mughal
+          emperors elevated coin-making to a high art. Akbar's square rupees, Jahangir's zodiac
+          gold coins, and the calligraphic masterpieces of Aurangzeb represent numismatic achievements
+          unmatched in Indian history.
+        </p>
+        <p>
+          Tipu Sultan's distinctive coinage — including the rare copper pieces from the Pattan mint
+          illustrated on this site — bridges the Islamic and indigenous South Indian traditions.
+        </p>
+        <div class="era-kingdoms">
+          <span class="meta-tag">Delhi Sultanate</span>
+          <span class="meta-tag">Mughal Empire</span>
+          <span class="meta-tag">Kingdom of Mysore</span>
+          <span class="meta-tag">Deccan Sultanates</span>
+        </div>
+        <a href="collection.html?era=Mughal+%26+Sultanate" class="era-see-all">View Mughal & Sultanate Coins →</a>
+      </div>
+      <div id="era-grid-mughal" class="era-grid-mini animate-in animate-delay-2">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ── ERA 4: Princely States ── -->
+    <div class="era-block" id="era-princely">
+      <div class="era-info-panel animate-in">
+        <span class="era-header-ornament">👑</span>
+        <span class="era-period-label">17th – 20th Century</span>
+        <h2>Princely States</h2>
+        <p>
+          At their zenith, over 560 princely states issued their own coinage — from the silver rupees
+          of Hyderabad (which rivalled British India issues in quality) to the crude copper coins
+          of tiny hill states. Each is a unique historical artefact.
+        </p>
+        <p>
+          The variety is staggering: Kutch koris in Arabic script, Mewar gold mohurs, Baroda silver,
+          and Travancore's distinctive conch-shell coins are all prized by collectors worldwide.
+        </p>
+        <div class="era-kingdoms">
+          <span class="meta-tag">Hyderabad</span>
+          <span class="meta-tag">Kutch</span>
+          <span class="meta-tag">Mewar</span>
+          <span class="meta-tag">Baroda</span>
+          <span class="meta-tag">Travancore</span>
+        </div>
+        <a href="collection.html?era=Princely+States" class="era-see-all">View Princely State Coins →</a>
+      </div>
+      <div id="era-grid-princely" class="era-grid-mini animate-in animate-delay-2">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <hr class="gold-rule">
+
+    <!-- ── ERA 5: Colonial Era ── -->
+    <div class="era-block" id="era-colonial">
+      <div class="era-info-panel animate-in">
+        <span class="era-header-ornament">⚓</span>
+        <span class="era-period-label">1757 — 1947 A.D.</span>
+        <h2>Colonial Era</h2>
+        <p>
+          British India's coinage is among the most methodically documented in the world. From the
+          East India Company's early issues — often struck over Mughal coins — to the standardised
+          Victorian and Edwardian rupees, these coins circulated across the entire subcontinent.
+        </p>
+        <p>
+          Key transitional pieces include the 1862 Victoria portrait series and the stunning proof
+          issues struck for Indian rulers. Machine-struck precision meets a rich imperial iconography.
+        </p>
+        <div class="era-kingdoms">
+          <span class="meta-tag">East India Company</span>
+          <span class="meta-tag">Queen Victoria</span>
+          <span class="meta-tag">Edward VII</span>
+          <span class="meta-tag">George V</span>
+          <span class="meta-tag">George VI</span>
+        </div>
+        <a href="collection.html?era=Colonial+Era" class="era-see-all">View Colonial Era Coins →</a>
+      </div>
+      <div id="era-grid-colonial" class="era-grid-mini animate-in animate-delay-2">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+  </div><!-- /eras-list -->
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="coin-modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-images">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <img class="modal-main-image" src="" alt="" loading="lazy">
+      <div class="modal-thumbs"></div>
+    </div>
+    <div class="modal-content">
+      <p class="modal-kingdom"></p>
+      <h2 class="modal-title"></h2>
+      <div class="coin-specs"></div>
+      <p class="modal-desc"></p>
+      <p class="modal-catalog-id" style="font-family:'Cinzel',serif;font-size:0.6rem;letter-spacing:0.15em;color:var(--text-dim);margin-top:1rem;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="gold-rule-thick"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">The Indian Numismatic</span>
+      <p>A personal archive and educational resource dedicated to the coinage of India and its neighbouring civilisations.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Full Collection</a></li>
+        <li><a href="eras.html">Browse by Era</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="contact.html">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 The Indian Numismatic · Educational Use Only</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  // Render era-specific mini grids
+  function renderEraGrid(era, containerId) {
+    const coins = COINS_DB.filter(c => c.era === era).slice(0, 4);
+    renderCoinCards(coins, containerId);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderEraGrid('Ancient India', 'era-grid-ancient');
+    renderEraGrid('South Indian Kingdoms', 'era-grid-south');
+    renderEraGrid('Mughal & Sultanate', 'era-grid-mughal');
+    renderEraGrid('Princely States', 'era-grid-princely');
+    renderEraGrid('Colonial Era', 'era-grid-colonial');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — The Indian Numismatic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.25rem 0;
+    }
+    .faq-item:last-child { border-bottom: none; }
+
+    .faq-question {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .faq-arrow {
+      color: var(--gold);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+    .faq-answer {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.7;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-top: 0.75rem;
+    }
+
+    .social-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.25rem 1rem;
+      border-radius: var(--radius);
+      text-align: center;
+      text-decoration: none;
+      transition: all var(--transition);
+      display: block;
+    }
+    .social-card:hover {
+      border-color: var(--gold-dark);
+      background: var(--bg-hover);
+      transform: translateY(-2px);
+    }
+
+    .social-card-icon { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+    .social-card-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+    .social-card-handle {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">The Indian Numismatic</span>
+      <span class="logo-sub">Est. A Treasury of Ancient Coinage</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="eras.html">By Era</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="gold-rule-thick"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb"><a href="index.html">Home</a> › <span>Contact</span></p>
+  <h1>Get in Touch</h1>
+  <p class="subtitle">Questions about the collection? Numismatic research? Or simply want to connect with a fellow enthusiast?</p>
+</div>
+
+<main class="container" style="padding-bottom:5rem;">
+
+  <div class="contact-grid">
+
+    <!-- FORM -->
+    <div>
+      <div class="section-header" style="text-align:left;margin-bottom:1.75rem;">
+        <span class="section-label">Send a Message</span>
+        <h2 style="font-size:1.3rem;">Write to Us</h2>
+      </div>
+
+      <form class="contact-form animate-in" id="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Dr. A. K. Sharma" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" class="form-control filter-select" style="padding:0.75rem 1rem;width:100%;">
+            <option value="">Select a subject…</option>
+            <option>Question about a specific coin</option>
+            <option>Historical research enquiry</option>
+            <option>Coin identification request</option>
+            <option>Collaboration / contribution</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="coin-ref">Coin Reference (if applicable)</label>
+          <input type="text" id="coin-ref" name="coin-ref" class="form-control" placeholder="e.g. IN-001 or Tipu Sultan paisa">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" class="form-control" rows="6" placeholder="Your message here…" required></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center;">
+            Send Message
+          </button>
+          <p style="font-size:0.78rem;color:var(--text-dim);font-style:italic;margin-top:0.75rem;text-align:center;">
+            This is an educational archive. Coins are not for sale.
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div>
+      <!-- Contact Details -->
+      <div class="contact-info-card animate-in animate-delay-1">
+        <h3>Contact Information</h3>
+
+        <div class="contact-detail">
+          <span class="icon">📍</span>
+          <div>
+            <span class="detail-label">Location</span>
+            <span class="detail-value">Bengaluru, Karnataka, India</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">📧</span>
+          <div>
+            <span class="detail-label">Email</span>
+            <span class="detail-value">info@theIndiannumismatic.com</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">📱</span>
+          <div>
+            <span class="detail-label">Instagram</span>
+            <span class="detail-value">@TheIndianNumismatic</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <span class="icon">⏱️</span>
+          <div>
+            <span class="detail-label">Response Time</span>
+            <span class="detail-value">Usually within 2–3 days</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Cards -->
+      <div class="animate-in animate-delay-2" style="margin-top:1.5rem;">
+        <p style="font-family:'Cinzel',serif;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:0.5rem;">
+          Follow the Collection
+        </p>
+        <div class="social-cards">
+          <a href="#" class="social-card">
+            <span class="social-card-icon">📸</span>
+            <span class="social-card-name">Instagram</span>
+            <span class="social-card-handle">@TheIndianNumismatic</span>
+          </a>
+          <a href="#" class="social-card">
+            <span class="social-card-icon">▶️</span>
+            <span class="social-card-name">YouTube</span>
+            <span class="social-card-handle">The Indian Numismatic</span>
+          </a>
+          <a href="#" class="social-card">
+            <span class="social-card-icon">👥</span>
+            <span class="social-card-name">Facebook</span>
+            <span class="social-card-handle">The Indian Numismatic</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div style="margin-top:5rem;">
+    <div class="section-header">
+      <span class="section-label">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="faq-item animate-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Are any coins available for purchase?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-answer">
+          No. This is a personal collection maintained purely for educational and archival purposes.
+          No coins are offered for sale through this website.
+        </div>
+      </div>
+
+      <div class="faq-item animate-in animate-delay-1">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can you help identify a coin I have found?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-answer">
+          We are happy to help where possible. Please send a clear photograph of both sides of the coin
+          along with its approximate diameter and weight using the contact form above. We cannot guarantee
+          identification of every coin but will do our best.
+        </div>
+      </div>
+
+      <div class="faq-item animate-in animate-delay-2">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          May I use your photographs for research or educational purposes?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-answer">
+          All photographs on this site are © The Indian Numismatic. Non-commercial educational use
+          with attribution is generally permitted — please contact us first to discuss your needs.
+        </div>
+      </div>
+
+      <div class="faq-item animate-in animate-delay-3">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How are the coins graded?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-answer">
+          Coins are graded using the standard Sheldon/PCGS scale adapted for world coins:
+          Poor, Fair, About Good, Good, Very Good, Fine, Very Fine, Extremely Fine, About Uncirculated, and Uncirculated.
+          All grades are the collector's own assessment unless otherwise noted.
+        </div>
+      </div>
+
+      <div class="faq-item animate-in">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I contribute information or corrections?
+          <span class="faq-arrow">▾</span>
+        </div>
+        <div class="faq-answer">
+          Absolutely — and we welcome it. If you spot an error in attribution, dating, or description,
+          or have additional historical context to share, please write to us. Corrections and contributions
+          from fellow researchers are acknowledged on the relevant entry.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="gold-rule-thick"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">The Indian Numismatic</span>
+      <p>A personal archive and educational resource dedicated to the coinage of India and its neighbouring civilisations.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Full Collection</a></li>
+        <li><a href="eras.html">Browse by Era</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="contact.html">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 The Indian Numismatic · Educational Use Only</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

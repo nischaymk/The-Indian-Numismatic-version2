@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — The Indian Numismatic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .mission-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold-dark);
+      padding: 2rem 2.5rem;
+      border-radius: var(--radius);
+      margin: 2.5rem 0;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin: 3rem 0;
+    }
+
+    .feature-item {
+      background: var(--bg-panel);
+      padding: 2rem 1.5rem;
+      transition: background var(--transition);
+    }
+    .feature-item:hover { background: var(--bg-hover); }
+
+    .feature-icon {
+      font-size: 1.8rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-item h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .coin-highlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .coin-highlight-card:hover {
+      border-color: var(--gold-dark);
+      transform: translateX(4px);
+    }
+    .coin-highlight-card img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg-deep);
+    }
+    .coin-highlight-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+    .coin-highlight-card p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <nav class="nav-wrapper">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-main">The Indian Numismatic</span>
+      <span class="logo-sub">Est. A Treasury of Ancient Coinage</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="collection.html">Collection</a></li>
+      <li><a href="eras.html">By Era</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="gold-rule-thick"></div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <p class="breadcrumb"><a href="index.html">Home</a> › <span>About</span></p>
+  <h1>About This Archive</h1>
+  <p class="subtitle">A passion for history, preserved in metal — one coin at a time.</p>
+</div>
+
+<main class="container-narrow" style="padding-bottom:5rem;">
+
+  <!-- MISSION -->
+  <div class="mission-block animate-in">
+    "Every coin in this collection is a survivor. It has outlasted the empire that minted it, the dynasty that fell,
+    the hands that spent it. To hold one is to touch history in the most literal sense.
+    This archive exists to share that experience with anyone who wishes to look."
+  </div>
+
+  <!-- ABOUT CONTENT -->
+  <div class="about-grid">
+    <div class="about-content">
+      <h2 class="animate-in">The Collection</h2>
+      <p class="animate-in animate-delay-1">
+        The Indian Numismatic is a personal collection of over 100 historical coins, assembled over many years
+        with a focus on the Indian subcontinent. The collection spans more than 2,600 years of monetary history —
+        from tiny Mauryan punch-marked silver pieces of the 4th century B.C. to the final issues of British
+        India before independence in 1947.
+      </p>
+      <p class="animate-in animate-delay-2">
+        Each coin has been carefully sourced, authenticated, graded, and documented. High-resolution
+        photographs are taken under controlled lighting conditions to capture every detail of the obverse,
+        reverse, and edge. The descriptive notes draw on published references including Standard Reference
+        of Indian Coins (SRIC), Mitchiner's Oriental Coins, and Pridmore's Coins of the British Commonwealth.
+      </p>
+
+      <hr class="gold-rule">
+
+      <h2 class="animate-in">Purpose & Philosophy</h2>
+      <p class="animate-in animate-delay-1">
+        This website is built for education and the sharing of knowledge. No coins are offered for sale here.
+        The goal is to make an excellent reference resource freely available to students, researchers, historians,
+        and fellow enthusiasts — particularly those in India, where access to international numismatic literature
+        can be limited.
+      </p>
+      <p class="animate-in animate-delay-2">
+        Numismatics is often called the "hobby of kings" — but it need not be exclusive. A common copper
+        paisa found in the soil of Karnataka carries as much historical significance as a gold mohur from
+        the royal treasury. This archive aims to treat every coin with equal seriousness.
+      </p>
+
+      <hr class="gold-rule">
+
+      <h2 class="animate-in">A Brief History of Indian Coinage</h2>
+
+      <div class="timeline animate-in animate-delay-1">
+        <div class="timeline-item">
+          <span class="timeline-era">~600 B.C.</span>
+          <h3>Punch-Marked Coins</h3>
+          <p>The Mahajanapadas introduce silver punch-marked coins — India's earliest currency, and among the earliest in the world.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-era">~150 B.C.</span>
+          <h3>Indo-Greek Coinage</h3>
+          <p>Following Alexander's campaigns, Greek rulers in Bactria and northwest India produce bilingual coins of extraordinary artistry — the finest portraiture of the ancient East.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-era">320 – 550 A.D.</span>
+          <h3>Gupta Gold Dinars</h3>
+          <p>The Gupta Empire issues magnificent gold dinars depicting emperors in dynamic poses — hunting lions, playing the veena, performing yajnas.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-era">1206 A.D.</span>
+          <h3>Delhi Sultanate</h3>
+          <p>Qutb-ud-din Aibak establishes the Delhi Sultanate and introduces Islamic coinage to north India — silver tankas with Kufic Arabic legends replace the old Hindu and Buddhist imagery.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-era">1526 – 1858 A.D.</span>
+          <h3>Mughal Empire</h3>
+          <p>The Mughals create the most diverse and refined coinage in Indian history — from Akbar's square rupees to Jahangir's extraordinary portrait mohurs and zodiac coins.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-era">1757 – 1947 A.D.</span>
+          <h3>British India</h3>
+          <p>The East India Company, then the Crown, introduces machine-struck coinage that standardises currency across the subcontinent for the first time — ending centuries of regional monetary tradition.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="about-image-panel animate-in animate-delay-2">
+      <img src="images/IN-001.jpg" alt="Tipu Sultan ⅛ Paisa" onerror="this.src='images/placeholder.jpg'"
+           style="margin-bottom:1rem;">
+      <p class="caption">
+        Tipu Sultan ⅛ Paisa, Pattan Mint, 1782–1799 A.D.<br>
+        One of the finest pieces in the collection.
+      </p>
+      <hr class="gold-rule" style="margin:1rem 0;">
+      <p class="caption" style="text-align:left;font-style:normal;color:var(--text-muted);font-size:0.82rem;line-height:1.6;">
+        All photographs are taken with a macro lens under raking light to reveal surface detail.
+        Images are post-processed for colour accuracy but not retouched.
+      </p>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="section-header" style="margin-top:4rem;">
+    <span class="section-label">What You'll Find Here</span>
+    <h2>Features of This Archive</h2>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-item animate-in">
+      <span class="feature-icon">📸</span>
+      <h3>High-Resolution Photography</h3>
+      <p>Every coin photographed under controlled lighting. Obverse, reverse, and edge detail captured where possible.</p>
+    </div>
+    <div class="feature-item animate-in animate-delay-1">
+      <span class="feature-icon">📚</span>
+      <h3>Scholarly Documentation</h3>
+      <p>Each entry cites weight, diameter, metal, mint, grade, and rarity — cross-referenced against standard catalogues.</p>
+    </div>
+    <div class="feature-item animate-in animate-delay-2">
+      <span class="feature-icon">🔍</span>
+      <h3>Searchable & Filterable</h3>
+      <p>Find coins by era, kingdom, metal, ruler, or keyword. The collection is fully indexed for research.</p>
+    </div>
+    <div class="feature-item animate-in animate-delay-3">
+      <span class="feature-icon">🎓</span>
+      <h3>Educational Focus</h3>
+      <p>Historical context is provided for every era and dynasty. No prior knowledge of numismatics is required.</p>
+    </div>
+  </div>
+
+  <!-- REFERENCES -->
+  <hr class="gold-rule" style="margin:3rem 0;">
+  <h2 class="animate-in" style="font-size:1.1rem;margin-bottom:1rem;">Reference Works</h2>
+  <p class="animate-in animate-delay-1" style="color:var(--text-muted);font-size:0.9rem;font-style:italic;line-height:1.8;">
+    Mitchiner, M. — <em>Oriental Coins and Their Values: The World of Islam</em> (1977)<br>
+    Pridmore, F. — <em>The Coins of the British Commonwealth of Nations</em> (1975)<br>
+    Goron, S. & Goenka, J.P. — <em>The Coins of the Indian Sultanates</em> (2001)<br>
+    Deyell, J.S. — <em>Living Without Silver: The Monetary History of Early Medieval North India</em> (1990)<br>
+    Gupta, P.L. — <em>Coins</em>, National Book Trust, India (1969)
+  </p>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="gold-rule-thick"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">The Indian Numismatic</span>
+      <p>A personal archive and educational resource dedicated to the coinage of India and its neighbouring civilisations.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="collection.html">Full Collection</a></li>
+        <li><a href="eras.html">Browse by Era</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="contact.html">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 The Indian Numismatic · Educational Use Only</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
